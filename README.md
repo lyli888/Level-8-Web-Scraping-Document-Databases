@@ -10,7 +10,7 @@ Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, an
 
 ### NASA Mars News
 
-* Scrape the [NASA Mars News Site](https://mars.nasa.gov/news/) and collect the latest News Title and Paragraph Text. Assign the text to variables that you can reference later.
+* Scrape the [NASA Mars News Site](https://mars.nasa.gov/news/) and collect the latest News Title and Paragraph Text. Assign the text to variables that you can reference later, `news_title` and `news_p`.
 
 
 ### JPL Mars Space Images - Featured Image
