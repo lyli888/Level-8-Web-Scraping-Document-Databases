@@ -1,6 +1,6 @@
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, jsonify
 import time
 import requests
 from flask_pymongo import PyMongo
