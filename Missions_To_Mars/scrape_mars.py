@@ -139,9 +139,7 @@ def scrape():
 app = Flask(__name__)
 
 # setup mongo connection
-mongo = PyMongo(app, uri="mongodb://localhost:27017/Mars_db")
-
-
+mongo = PyMongo(app, uri="mongodb://localhost:27017/Mars_DB")
 
 @app.route('/')
 def index():
