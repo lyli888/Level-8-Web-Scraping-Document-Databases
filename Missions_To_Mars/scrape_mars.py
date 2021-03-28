@@ -131,3 +131,34 @@ def scrape():
     
     return mars_data
 
+
+###################
+#Part II - MONGODB#
+###################
+
+app = Flask(__name__)
+
+mongo = PyMongo(app, uri="mongodb://localhost:27017/Mars_db")
+
+@app.route('/')
+def index():
+    
+    #Find data
+    mars_info = mongo.db.mars_data.find_one()
+    return render_template('index.html', mars_info=mars_info)
+
+@app.route('/scrape')
+def scrape():
+    
+    #Scrape
+    mars_data= scrape_mars.scrape()
+
+    # Update the Mongo database using latest scrape
+    mars_info = mongo.db.mars_info
+    mongo.db.mars_info.update({}, mars_data, upsert=True)
+
+    # Return to home route
+    return redirect("/")
+
+if __name__ == "__main__":
+    app.run(debug=True)
