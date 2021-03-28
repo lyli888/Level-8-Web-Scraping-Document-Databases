@@ -132,13 +132,15 @@ def scrape():
     return mars_data
 
 
-###################
-#Part II - MONGODB#
-###################
+######################
+#Part II - PyMONGO DB#
+######################
 
+#Initialize Flask
 app = Flask(__name__)
 
-# setup mongo connection
+#Setup Mongo Connection: Database = Mars_DB, Collection = mars_info
+
 mongo = PyMongo(app, uri="mongodb://localhost:27017/Mars_DB")
 
 @app.route('/')
