@@ -49,70 +49,23 @@
             </div><!-- Row -->
         </div><!-- Container -->
 
-
         <!-- Cards -->
         <h3 style="padding-top: 50px; margin-top: 100px; text-align: center;">Mars Hemispheres</h3>
         <div class="card-deck">
             <hr>
             <div class="col-md-12">
                 <div class="row">
-                    { mars_info.hemisphere_image.0.title }
+                    {% for item in mars_info.hemisphere_image %}
                     <div class="col-md-6">
                         <div class="card text-white bg-dark" style="margin: 30px;">
-                            <img class="card-img-top" src="{{ mars_info.hemisphere_image.0.img_url }}" />
+                            <img class="card-img-top" src="{{ item.img_url }}" />
                             <div class="card-body">
-                                <p class="card-text">{{ mars_info.hemisphere_image.0.title }}</p>
+                                <p class="card-text">{{ item.title }}</p>
                             </div>
                         </div>
                     </div>
-                    {Hemisphere 1}
+                    {% endfor %}
                 </div>
-                
-                <hr>
-                <div class="col-md-12">
-                  <div class="row">
-                      { mars_info.hemisphere_image.1.title }
-                      <div class="col-md-6">
-                          <div class="card text-white bg-dark" style="margin: 30px;">
-                              <img class="card-img-top" src="{{ mars_info.hemisphere_image.1.img_url }}" />
-                              <div class="card-body">
-                                  <p class="card-text">{{ mars_info.hemisphere_image.1.title }}</p>
-                              </div>
-                          </div>
-                      </div>
-                      {Hemisphere 2}
-                  </div>  
-
-                  <hr>
-                <div class="col-md-12">
-                  <div class="row">
-                      {mars_info.hemisphere_image.2.title}
-                      <div class="col-md-6">
-                          <div class="card text-white bg-dark" style="margin: 30px;">
-                              <img class="card-img-top" src="{{ mars_info.hemisphere_image.2.img_url }}" />
-                              <div class="card-body">
-                                  <p class="card-text">{{ mars_info.hemisphere_image.2.title }}</p>
-                              </div>
-                          </div>
-                      </div>
-                      {Hemisphere 3}
-                  </div>  
-
-                  <hr>
-                <div class="col-md-12">
-                  <div class="row">
-                      {mars_info.hemisphere_image.3.title}
-                      <div class="col-md-6">
-                          <div class="card text-white bg-dark" style="margin: 30px;">
-                              <img class="card-img-top" src="{{ mars_info.hemisphere_image.3.img_url }}" />
-                              <div class="card-body">
-                                  <p class="card-text">{{ mars_info.hemisphere_image.3.title }}</p>
-                              </div>
-                          </div>
-                      </div>
-                      {Hemisphere 4}
-                  </div>  
-
             </div>
         </div><!-- Close main container -->
 
