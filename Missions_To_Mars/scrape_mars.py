@@ -24,18 +24,18 @@ def scrape():
     html=browser.html
     soup=bs(html,"html.parser")
     
-    #news_title
+    ##news_title
     news=soup.find_all("div", class_="content_title")
     ul_item = soup.find('ul', class_= 'item_list')
     li_slide =ul_item.find('li', class_='slide')
     news_title = li_slide.find('div',class_='content_title').text
     mars_data["news_title"] = news_title
     
-    #news_p 
+    ##news_p 
     news_p = li_slide.find("div", class_="article_teaser_body").get_text()
     mars_data["news_p"] = news_p    
     
-    #featured_image_url
+    ##featured_image_url
     feature_url = "https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html"
     browser.visit(feature_url)
     time.sleep(4)
@@ -43,15 +43,11 @@ def scrape():
     featured_image_url =browser.find_by_css("img.fancybox-image")["src"]
     mars_data["featured_image_url"] = featured_image_url
    
-    #Quit browser
-    browser.quit()
-
-
     #Facts Table with Pandas 
     path = "https://space-facts.com/mars/"
     table = pd.read_html(path)
     
-    #Load Facts Into Dictionaries List Then DataFrame
+    ##Load Facts Into Dictionaries List Then DataFrame
     mars_df = table[0]
     
     a=[]
@@ -73,7 +69,7 @@ def scrape():
     {"Key": a[7], "Value": b[7]},
     {"Key": a[8], "Value": b[8]},]
    
-    #Format DataFrame into html string
+    ##Format DataFrame into html string
     m = pd.DataFrame(fact_table)
     m.columns = ["Description","Value"]
     m.set_index('Description', inplace=True)
@@ -82,13 +78,26 @@ def scrape():
     mars_data["table"] = fact_table
     
     #Mars Hemispheres
+    
+    ##Request & Hemispheres Names
 
-     
-   
+    hemispheres_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    request = requests.get(hemispheres_url)
+    s=bs(request.text,"html.parser")
+    titles=s.find_all("div", class_="description")
     
-    #h_LINK
-  
+    title_list=[]
     
-  
+    for g in range(len(titles)):
+        title_list.append(titles[g].find("h3").text)
+
+    ##Visit Page 
+    executable_path = {'executable_path': ChromeDriverManager().install()}
+    browser = Browser('chrome', **executable_path, headless=False)
+    h_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    browser.visit(h_url)
+    
+    #Quit browser
+    browser.quit()
     
     return mars_data
