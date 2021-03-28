@@ -140,6 +140,8 @@ app = Flask(__name__)
 
 mongo = PyMongo(app, uri="mongodb://localhost:27017/Mars_db")
 
+mars_info = {}
+
 @app.route('/')
 def index():
     
