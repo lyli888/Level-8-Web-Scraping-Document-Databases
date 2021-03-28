@@ -15,7 +15,7 @@ Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, an
 
 ### JPL Mars Space Images - Featured Image
 
-* Visit the url for JPL Featured Space Image (https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html).
+* Visit the url for JPL Featured Space Image at (https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html).
 
 * Use splinter to navigate the site and find the image url for the current Featured Mars Image and assign the url string to a variable called `featured_image_url`.
 
