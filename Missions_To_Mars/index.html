@@ -26,27 +26,29 @@
         <!-- News Section -->
         <div class="container">
             <h3>Latest Mars News</h3>
-            <h6 style="color: #c1440e">{{ mars_data['news_title'] }}</h6>
-            <p>{{ mars_data['news_p'] }}</p>
+            <h6 style="color: #c1440e">{{ mars_info.news_title }}</h6>
+            <p>{{ mars_info.news_p }}</p>
         </div>
+
 
         <div class="container">
             <div class="row">
                 <!-- Left Image-->
                 <div class="col-lg-8 col-md-8 col-sm-12">
                     <h3>Featured Mars Image</h3>
-                    <img src="{{ mars_data['featured_image'] }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
+                    <img src="{{ mars_info.featured_image }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
                 </div>
 
                     <!-- Table -->
                     <br>
                     <h3>Mars Facts</h3>
                     <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
-                        {{ mars_data['table']}}
+                        {{ mars_info.table}}
                     </div>
                 </div> <!-- col4 -->
             </div><!-- Row -->
         </div><!-- Container -->
+
 
         <!-- Cards -->
         <h3 style="padding-top: 50px; margin-top: 100px; text-align: center;">Mars Hemispheres</h3>
@@ -54,12 +56,12 @@
             <hr>
             <div class="col-md-12">
                 <div class="row">
-                    {mars_data['hemisphere_image'][0]['title']}
+                    { mars_info.hemisphere_image.0.title }
                     <div class="col-md-6">
                         <div class="card text-white bg-dark" style="margin: 30px;">
-                            <img class="card-img-top" src="{{ mars_data['hemisphere_image'][0]['img_url'] }}" />
+                            <img class="card-img-top" src="{{ mars_info.hemisphere_image.0.img_url }}" />
                             <div class="card-body">
-                                <p class="card-text">{{ mars_data['hemisphere_image'][0]['title'] }}</p>
+                                <p class="card-text">{{ mars_info.hemisphere_image.0.title }}</p>
                             </div>
                         </div>
                     </div>
@@ -69,12 +71,12 @@
                 <hr>
                 <div class="col-md-12">
                   <div class="row">
-                      {mars_data['hemisphere_image'][1]['title']}
+                      { mars_info.hemisphere_image.1.title }
                       <div class="col-md-6">
                           <div class="card text-white bg-dark" style="margin: 30px;">
-                              <img class="card-img-top" src="{{ mars_data['hemisphere_image'][1]['img_url'] }}" />
+                              <img class="card-img-top" src="{{ mars_info.hemisphere_image.1.img_url }}" />
                               <div class="card-body">
-                                  <p class="card-text">{{ mars_data['hemisphere_image'][1]['title'] }}</p>
+                                  <p class="card-text">{{ mars_info.hemisphere_image.1.title }}</p>
                               </div>
                           </div>
                       </div>
@@ -84,12 +86,12 @@
                   <hr>
                 <div class="col-md-12">
                   <div class="row">
-                      {mars_data['hemisphere_image'][2]['title']}
+                      {mars_info.hemisphere_image.2.title}
                       <div class="col-md-6">
                           <div class="card text-white bg-dark" style="margin: 30px;">
-                              <img class="card-img-top" src="{{ mars_data['hemisphere_image'][2]['img_url'] }}" />
+                              <img class="card-img-top" src="{{ mars_info.hemisphere_image.2.img_url }}" />
                               <div class="card-body">
-                                  <p class="card-text">{{ mars_data['hemisphere_image'][2]['title'] }}</p>
+                                  <p class="card-text">{{ mars_info.hemisphere_image.2.title }}</p>
                               </div>
                           </div>
                       </div>
@@ -99,12 +101,12 @@
                   <hr>
                 <div class="col-md-12">
                   <div class="row">
-                      {mars_data['hemisphere_image'][3]['title']}
+                      {mars_info.hemisphere_image.3.title}
                       <div class="col-md-6">
                           <div class="card text-white bg-dark" style="margin: 30px;">
-                              <img class="card-img-top" src="{{ mars_data['hemisphere_image'][3]['img_url'] }}" />
+                              <img class="card-img-top" src="{{ mars_info.hemisphere_image.3.img_url }}" />
                               <div class="card-body">
-                                  <p class="card-text">{{ mars_data['hemisphere_image'][3]['title'] }}</p>
+                                  <p class="card-text">{{ mars_info.hemisphere_image.3.title }}</p>
                               </div>
                           </div>
                       </div>
