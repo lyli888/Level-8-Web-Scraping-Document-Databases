@@ -42,6 +42,9 @@ def scrape():
     browser.find_by_css(".btn").click()
     featured_image_url =browser.find_by_css("img.fancybox-image")["src"]
     mars_data["featured_image_url"] = featured_image_url
+    
+    #Quit Browser
+    browser.quit()
    
     #Facts Table with Pandas 
     path = "https://space-facts.com/mars/"
