@@ -1,9 +1,9 @@
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
-from flask import Flask, jsonify
+from flask import Flask, redirect, render_template
 import time
 import requests
-import pymongo 
+from flask_pymongo import PyMongo
 import pandas as pd
 from webdriver_manager.chrome import ChromeDriverManager
 
