@@ -31,6 +31,7 @@
         </div>
 
 
+
         <div class="container">
             <div class="row">
                 <!-- Featured Image-->
@@ -39,11 +40,16 @@
                     <img src="{{ mars_info.featured_image }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
                 </div>
                 
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="card" style="width: 18rem;">
+                    </div>
 
                 <div class="row">
                     <!-- Table -->
                     <br>
-                    <h4>Mars Facts</h4>
+                    <h3>Mars Facts</h3>
+                    <br>
+                    <br>
                     <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
                         {{ mars_info.table|safe}}
                     </div>
