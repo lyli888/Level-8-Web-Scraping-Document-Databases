@@ -18,6 +18,7 @@ def scrape():
     browser = initialize_browser()
     mars_data={}
     
+    
     #Mars News
     news_url="https://mars.nasa.gov/news/"
     browser.visit(news_url)    
@@ -29,12 +30,10 @@ def scrape():
     ul_item = soup.find('ul', class_= 'item_list')
     li_slide =ul_item.find('li', class_='slide')
     news_title = li_slide.find('div',class_='content_title').text
-    mars_data["news_title"] = news_title
-    
+     
     ##news_p 
     news_p = li_slide.find("div", class_="article_teaser_body").get_text()
-    mars_data["news_p"] = news_p    
-    
+     
     ##featured_image_url
     feature_url = "https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html"
     browser.visit(feature_url)
@@ -43,8 +42,9 @@ def scrape():
     featured_image_url =browser.find_by_css("img.fancybox-image")["src"]
     mars_data["featured_image_url"] = featured_image_url
     
-    #Quit Browser
+    #Quit Browser - Mars News
     browser.quit()
+   
    
     #Facts Table with Pandas 
     path = "https://space-facts.com/mars/"
@@ -78,8 +78,7 @@ def scrape():
     m.set_index('Description', inplace=True)
     fact_table = m.to_html()
     
-    mars_data["table"] = fact_table
-    
+       
     #Mars Hemispheres
     
     ##Request & Hemispheres Names
@@ -100,7 +99,30 @@ def scrape():
     h_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(h_url)
     
-    #Quit browser
+    links_list=[]
+    for z in range(len(browser.find_by_css("a.product-item h3"))):
+        browser.find_by_css("a.product-item h3")[x].click()
+        links_list.append(browser.find_by_css("img.wide-image")["src"])
+        browser.back()
+    
+    ##Quit Browser - Mars Hemispheres
     browser.quit()
+    
+    h_image_urls = [
+    {"title": title_list[0], "img_url": links_list[0]},
+    {"title": title_list[1], "img_url": links_list[1]},
+    {"title": title_list[2], "img_url": links_list[2]},
+    {"title": title_list[3], "img_url": links_list[3]},]
+    
+    pd.DataFrame(h_image_urls)
+    
+    
+    #Load all scrapped data into 1 object
+    mars_data = {
+        "news_title":news_title,
+        "news_p": news_p,      
+        "featured_image":featured_image_url,
+        "table":fact_table,
+        "hemisphere_image":h_image_urls}
     
     return mars_data
