@@ -1,7 +1,11 @@
+from splinter import Browser
+from bs4 import BeautifulSoup as bs
 from flask import Flask, redirect, render_template, jsonify
 import time
+import requests
 from flask_pymongo import PyMongo
-import scrape_mars
+import pandas as pd
+from webdriver_manager.chrome import ChromeDriverManager
 
 ######################
 #Part II - PyMONGO DB#
@@ -26,9 +30,9 @@ def index():
 def scrape():   
     
     #Scrape New Data & Store In Variable
-    mars_data = scrape_mars.scrape()
+    mars_data_new = scrape_mars.scrape()
     #Update with new scraped data
-    mongo.db.mars_info.update({}, mars_data, upsert=True)
+    mongo.db.mars_info.update({}, mars_data_new, upsert=True)
 
     # Redirect back to home page
     return redirect("/")
