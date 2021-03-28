@@ -26,9 +26,9 @@ def index():
 def scrape():   
     
     #Scrape New Data & Store In Variable
-    mars_data_new = scrape_mars.scrape()
+    mars_data = scrape_mars.scrape()
     #Update with new scraped data
-    mongo.db.mars_info.update({}, mars_data_new, upsert=True)
+    mongo.db.mars_info.update({}, mars_data, upsert=True)
 
     # Redirect back to home page
     return redirect("/")
