@@ -33,8 +33,7 @@ def scrape():
     
     #news_p 
     news_p = li_slide.find("div", class_="article_teaser_body").get_text()
-    mars_data["news_p"] = news_p
-    
+    mars_data["news_p"] = news_p    
     
     #featured_image_url
     feature_url = "https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html"
@@ -47,15 +46,40 @@ def scrape():
     #Quit browser
     browser.quit()
 
-    
-    #Facts Table with Pandas
+
+    #Facts Table with Pandas 
     path = "https://space-facts.com/mars/"
     table = pd.read_html(path)
     
+    #Load Facts Into Dictionaries List Then DataFrame
+    mars_df = table[0]
     
-
-
+    a=[]
+    b=[]
     
+    for x in mars_df[0]:
+        a.append(x)
+
+    for y in mars_df[1]:
+        b.append(y)
+    
+    fact_table = [
+    {"Key": a[0], "Value": b[0]},
+    {"Key": a[1], "Value": b[1]},
+    {"Key": a[2], "Value": b[3]},
+    {"Key": a[4], "Value": b[4]},
+    {"Key": a[5], "Value": b[5]},
+    {"Key": a[6], "Value": b[6]},
+    {"Key": a[7], "Value": b[7]},
+    {"Key": a[8], "Value": b[8]},]
+   
+    #Format DataFrame into html string
+    m = pd.DataFrame(fact_table)
+    m.columns = ["Description","Value"]
+    m.set_index('Description', inplace=True)
+    fact_table = m.to_html()
+    
+    mars_data["table"] = fact_table
     
     #Mars Hemispheres
 
