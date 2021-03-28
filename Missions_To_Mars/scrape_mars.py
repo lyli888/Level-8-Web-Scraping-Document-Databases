@@ -7,6 +7,10 @@ from flask_pymongo import PyMongo
 import pandas as pd
 from webdriver_manager.chrome import ChromeDriverManager
 
+#################
+#Part I - SCRAPE#
+#################
+
 def initialize_browser():
 
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -126,3 +130,4 @@ def scrape():
         "hemisphere_image":h_image_urls}
     
     return mars_data
+
