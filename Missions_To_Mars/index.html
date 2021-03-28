@@ -26,8 +26,8 @@
         <!-- News Section -->
         <div class="container">
             <h3>Latest Mars News</h3>
-            <h6 style="color: #c1440e">{{ mars_info.news_title }}</h6>
-            <p>{{ mars_info.news_p }}</p>
+            <h6 style="color: #c1440e">{{ mars_data:news_title }}</h6>
+            <p>{{ mars_data:news_p }}</p>
         </div>
 
         <div class="container">
@@ -35,25 +35,14 @@
                 <!-- Left Image-->
                 <div class="col-lg-8 col-md-8 col-sm-12">
                     <h3>Featured Mars Image</h3>
-                    <img src="{{ mars_data.featured_image_url }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
+                    <img src="{{ mars_data:featured_image_url }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
                 </div>
-
-                <!-- Weather Card -->
-                <div class="col-lg-4 col-md-4 col-sm-12">
-
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body text-white bg-dark">
-                            <h6 class="card-title">Current Weather on Mars</h6>
-                            <p class="card-text">{{ mars_info.weather_tweet }}</p>
-                        </div>
-
-                    </div>
 
                     <!-- Table -->
                     <br>
                     <h3>Mars Facts</h3>
                     <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
-                        {{ mars_data.table|safe}}
+                        {{ mars_data:table|safe}}
                     </div>
                 </div> <!-- col4 -->
             </div><!-- Row -->
