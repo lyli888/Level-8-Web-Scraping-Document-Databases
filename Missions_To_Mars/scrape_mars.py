@@ -146,18 +146,18 @@ mars_info = {}
 def index():
     
     #Find data
-    mars_info = mongo.db.mars_data.find_one()
-    return render_template('index.html', mars_info=mars_info)
+    mars_data = mongo.db.mars_data.find_one()
+    return render_template('index.html', mars_data=mars_data)
 
 @app.route('/scrape')
 def scrape():
     
-    #Scrape
-    mars_data= scrape_mars.scrape()
+    #Scrape For Latest Info
+    mars_data_new= scrape_mars.scrape()
 
     # Update the Mongo database using latest scrape
-    mars_info = mongo.db.mars_info
-    mongo.db.mars_info.update({}, mars_data, upsert=True)
+    mars_data = mongo.db.mars_data
+    mongo.db.mars_data.update({}, mars_data_new, upsert=True)
 
     # Return to home route
     return redirect("/")
