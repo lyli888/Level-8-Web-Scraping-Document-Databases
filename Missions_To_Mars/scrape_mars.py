@@ -80,7 +80,6 @@ def mars_scrape():
     ##Format DataFrame into html string
     m = pd.DataFrame(fact_table)
     m.columns = ["Description","Value"]
-    m.set_index('Description', inplace=True)
     fact_table = m.to_html()
       
        
