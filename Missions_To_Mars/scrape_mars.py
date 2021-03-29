@@ -117,18 +117,14 @@ def mars_scrape():
     ##Quit Browser - Mars Hemispheres
     browser.quit()
     
-    ###h_image_urls = [
-    ###{"title": title_list[0], "img_url": links_list[0]},
-    ###{"title": title_list[1], "img_url": links_list[1]},
-    ####{"title": title_list[2], "img_url": links_list[2]},
-    #{"title": title_list[3], "img_url": links_list[3]},]
-    
-    ####pd.DataFrame(h_image_urls)
+    h_image_urls = [
+    {"title": title_list[0], "img_url": links_list[0]},
+    {"title": title_list[1], "img_url": links_list[1]},
+    {"title": title_list[2], "img_url": links_list[2]},
+    {"title": title_list[3], "img_url": links_list[3]},]
     
     ####Inserting hemisphere image title:url pairs into MongoDB not working, so just inserting images instead
-    h_image_urls = [links_list[0], links_list[1], links_list[2], links_list[3]]
-    
-    
+    #h_image_urls = [links_list[0], links_list[1], links_list[2], links_list[3]]
     
     ##Load all scrapped data into 1 object
     mars_data = {
@@ -173,4 +169,3 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
