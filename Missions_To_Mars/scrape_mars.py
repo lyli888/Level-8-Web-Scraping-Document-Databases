@@ -149,7 +149,7 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/Mars_DB")
 def scrape():   
     
     #Scrape New Data & Store In Variable
-    mars_data = scrape_mars.scrape()
+    mars_data = scrape()
     #Update with new scraped data
     mongo.db.mars_info.update({}, mars_data, upsert=True)
 
