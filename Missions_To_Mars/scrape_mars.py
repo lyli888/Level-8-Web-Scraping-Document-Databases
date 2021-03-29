@@ -102,8 +102,7 @@ def mars_scrape():
     browser = Browser('chrome', **executable_path, headless=False)
     h_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(h_url)
-    
-    ##Pause to allow script to run
+    ##pause to allow script to run
     time.sleep(5)
     
     ##Find Links
