@@ -112,14 +112,16 @@ def scrape():
     ##Quit Browser - Mars Hemispheres
     browser.quit()
     
-    h_image_urls = [
-    {"title": title_list[0], "img_url": links_list[0]},
-    {"title": title_list[1], "img_url": links_list[1]},
-    {"title": title_list[2], "img_url": links_list[2]},
-    {"title": title_list[3], "img_url": links_list[3]},]
+    #h_image_urls = [
+    #{"title": title_list[0], "img_url": links_list[0]},
+    #{"title": title_list[1], "img_url": links_list[1]},
+    #{"title": title_list[2], "img_url": links_list[2]},
+    #{"title": title_list[3], "img_url": links_list[3]},]
     
-    pd.DataFrame(h_image_urls)
+    #pd.DataFrame(h_image_urls)
     
+    #Inserting hemisphere image title:url pairs into MongoDB not working, so just inserting images
+    h_image_urls = [links_list[0], links_list[1], links_list[2], links_list[3]]
     
     #Load all scrapped data into 1 object
     mars_data = {
@@ -142,13 +144,6 @@ app = Flask(__name__)
 
 mongo = PyMongo(app, uri="mongodb://localhost:27017/Mars_DB")
 
-@app.route('/')
-def index():
-   # Find Data in mars_info Collection
-    mars_info = mongo.db.mars_info.find_one()
-
-    # Return template & data
-    return render_template("index.html", mars_info=mars_info)
 
 @app.route('/scrape')
 def scrape():   
@@ -161,6 +156,13 @@ def scrape():
     # Redirect back to home page
     return redirect("/")
 
+@app.route('/')
+def index():
+   # Find Data in mars_info Collection
+    mars_info = mongo.db.mars_info.find_one()
+
+    # Return template & data
+    return render_template("index.html", mars_info=mars_info)
 
 if __name__ == "__main__":
     app.run(debug=True)
