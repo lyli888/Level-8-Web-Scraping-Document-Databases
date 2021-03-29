@@ -16,7 +16,7 @@ def initialize_browser():
     executable_path = {'executable_path': ChromeDriverManager().install()}
     return Browser("chrome", **executable_path, headless=False)
 
-def scrape():
+def mars_scrape():
     
     #browser
     browser = initialize_browser()
@@ -149,9 +149,9 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/Mars_DB")
 def scrape():   
     
     #Scrape New Data & Store In Variable
-    mars_data = scrape()
+    mars_data_new = mars_scrape()
     #Update with new scraped data
-    mongo.db.mars_info.update({}, mars_data, upsert=True)
+    mongo.db.mars_info.update({}, mars_data_new, upsert=True)
 
     # Redirect back to home page
     return redirect("/")
