@@ -23,16 +23,17 @@ def mars_scrape():
     mars_data={}
     
     
-    #Mars News
+    #Mars News Scraping
     news_url="https://mars.nasa.gov/news/"
-    browser.visit(news_url)    
+    browser.visit(news_url) 
+    time.sleep(2)
     html=browser.html
     soup=bs(html,"html.parser")
     
     ##news_title
     news=soup.find_all("div", class_="content_title")
     ul_item = soup.find('ul', class_= 'item_list')
-    li_slide =ul_item.find('li', class_='slide')
+    li_slide = ul_item.find('li', class_='slide')
     news_title = li_slide.find('div',class_='content_title').text
      
     ##news_p 
@@ -41,16 +42,16 @@ def mars_scrape():
     ##featured_image_url
     feature_url = "https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html"
     browser.visit(feature_url)
-    time.sleep(4)
+    time.sleep(5)
     browser.find_by_css(".btn").click()
     featured_image_url =browser.find_by_css("img.fancybox-image")["src"]
     mars_data["featured_image_url"] = featured_image_url
     
-    #Quit Browser - Mars News
+    ###Quit Browser - Mars News
     browser.quit()
    
    
-    #Facts Table with Pandas 
+    #table
     path = "https://space-facts.com/mars/"
     table = pd.read_html(path)
     
@@ -81,9 +82,9 @@ def mars_scrape():
     m.columns = ["Description","Value"]
     m.set_index('Description', inplace=True)
     fact_table = m.to_html()
-    
+      
        
-    #Mars Hemispheres
+    #Mars Hemispheres 
     
     ##Request & Hemispheres Names
 
@@ -103,6 +104,10 @@ def mars_scrape():
     h_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(h_url)
     
+    ##Pause to allow script to run
+    time.sleep(5)
+    
+    ##Find Links
     links_list=[]
     for z in range(len(browser.find_by_css("a.product-item h3"))):
         browser.find_by_css("a.product-item h3")[z].click()
@@ -112,18 +117,20 @@ def mars_scrape():
     ##Quit Browser - Mars Hemispheres
     browser.quit()
     
-    #h_image_urls = [
-    #{"title": title_list[0], "img_url": links_list[0]},
-    #{"title": title_list[1], "img_url": links_list[1]},
-    #{"title": title_list[2], "img_url": links_list[2]},
+    ###h_image_urls = [
+    ###{"title": title_list[0], "img_url": links_list[0]},
+    ###{"title": title_list[1], "img_url": links_list[1]},
+    ####{"title": title_list[2], "img_url": links_list[2]},
     #{"title": title_list[3], "img_url": links_list[3]},]
     
-    #pd.DataFrame(h_image_urls)
+    ####pd.DataFrame(h_image_urls)
     
-    #Inserting hemisphere image title:url pairs into MongoDB not working, so just inserting images
+    ####Inserting hemisphere image title:url pairs into MongoDB not working, so just inserting images instead
     h_image_urls = [links_list[0], links_list[1], links_list[2], links_list[3]]
     
-    #Load all scrapped data into 1 object
+    
+    
+    ##Load all scrapped data into 1 object
     mars_data = {
         "news_title":news_title,
         "news_p": news_p,      
