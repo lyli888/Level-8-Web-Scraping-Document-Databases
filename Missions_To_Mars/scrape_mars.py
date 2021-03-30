@@ -51,7 +51,7 @@ def mars_scrape():
     browser.quit()
    
    
-    #table
+    #Mars Facts Table
     path = "https://space-facts.com/mars/"
     table = pd.read_html(path)
     
