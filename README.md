@@ -1,6 +1,6 @@
 # Mission to Mars
 
-### NOTE: This is a back-end application that collects data from web pages, stores the information in a MongoDB database, & then updates/publishes to a web page. Refer to [Screenshots](/Screenshots of Scrape Function/) for project results. 
+### NOTE: This is a back-end application that collects data from web pages, stores the information in a MongoDB database, & then updates/publishes to a web page. Refer to [Screenshots](/Screenshots_of Scrape_Function/) for project results. 
 
 Scrape various websites for data/images/statistics related to the Mission to Mars, store the data in MongoDB, and display the information in a single HTML page. 
 
