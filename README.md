@@ -1,6 +1,6 @@
 # Mission to Mars
 
-### NOTE: This is a back-end application that collects data from web pages, stores the information in a MongoDB database, & then updates/publishes to a web page. Refer to [Screenshots of Scrape Function](/Screenshots of Scrape Function/) for project results. 
+### NOTE: This is a back-end application that collects data from web pages, stores the information in a MongoDB database, & then updates/publishes to a web page. Refer to [Screenshots of Scrape Function](/ Screenshots of Scrape Function /) for project results. 
 
 In this assignment, you will build a back-end web application that scrapes various websites for data related to the Mission to Mars, stores the data in MongoDB, and displays the information in a single HTML page. The following outlines what you need to do.
 
