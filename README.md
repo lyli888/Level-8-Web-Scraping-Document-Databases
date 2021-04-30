@@ -22,7 +22,6 @@ Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, an
 * Make sure to find the image url to the full size `.jpg` image.
 
 * Make sure to save a complete url string for this image.
-* 
 
 ### Mars Facts
 
