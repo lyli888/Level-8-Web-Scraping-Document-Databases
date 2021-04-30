@@ -2,13 +2,11 @@
 
 ### NOTE: This is a back-end application that collects data from web pages, stores the information in a MongoDB database, & then updates/publishes to a web page. Refer to [Screenshots of Scrape Function](/Screenshots of Scrape Function/) for project results. 
 
-In this assignment, you will build a back-end web application that scrapes various websites for data related to the Mission to Mars, stores the data in MongoDB, and displays the information in a single HTML page. The following outlines what you need to do.
+Scrape various websites for data/images/statistics related to the Mission to Mars, store the data in MongoDB, and display the information in a single HTML page. 
 
 ## Step 1 - Scraping
 
 Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
-
-* Create a Jupyter Notebook file called `mission_to_mars.ipynb` and use this to complete all of your scraping and analysis tasks. The following outlines what you need to scrape.
 
 ### NASA Mars News
 
@@ -24,13 +22,14 @@ Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, an
 * Make sure to find the image url to the full size `.jpg` image.
 
 * Make sure to save a complete url string for this image.
-
+* 
 
 ### Mars Facts
 
 * Visit the Mars Facts webpage [here](https://space-facts.com/mars/) and use Pandas to scrape the table containing facts about the planet including Diameter, Mass, etc.
 
 * Use Pandas to convert the data to a HTML table string.
+
 
 ### Mars Hemispheres
 
@@ -41,6 +40,7 @@ Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, an
 * Save both the image url string for the full resolution hemisphere image, and the Hemisphere title containing the hemisphere name. Use a Python dictionary to store the data using the keys `img_url` and `title`.
 
 * Append the dictionary with the image url string and the hemisphere title to a list. This list will contain one dictionary for each hemisphere.
+
 
 ## Step 2 - MongoDB and Flask Application
 
