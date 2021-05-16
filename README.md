@@ -1,8 +1,6 @@
 # Mission to Mars
 
-### NOTE: This is a back-end application that collects data from web pages, aggregates the information to store in a MongoDB database, & then updates & publishes to a web page. Refer to [screenshots of scrape function](https://github.com/lyli888/Level-9-Web-Scraping-MongoDB/tree/main/Screenshots%20of%20Scrape%20Function) for project results. 
-
-Scrape various websites for data/images/statistics related to the Mission to Mars, store the data in MongoDB, and display the information in a single HTML page. 
+### This is a back-end application that collects data, images, & statistics from web pages, aggregates the information to store in a MongoDB database, & then updates & publishes to a single HTML web page. Refer to [screenshots of scrape function](https://github.com/lyli888/Level-9-Web-Scraping-MongoDB/tree/main/Screenshots%20of%20Scrape%20Function) for project results. 
 
 ## Step 1 - Scraping
 
